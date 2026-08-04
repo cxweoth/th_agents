@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp:*)",
+      "Bash(git:*)",
+      "Write",
+      "Edit"
+    ],
+    "defaultMode": "auto"
+  },
+  "disableBundledSkills": true,
+  "skillOverrides": {
+    "reply-shape": "name-only",
+    "task-list-format": "name-only",
+    "decidable-questions": "name-only",
+    "reuse-before-writing": "name-only",
+    "comment-brevity": "name-only",
+    "file-hygiene": "name-only"
+  },
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": false
+  },
+  "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
+}
