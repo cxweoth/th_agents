@@ -17,8 +17,9 @@ Bold the section name at the top of its block. A `---` only between two blocks
 that are both present.
 
 **Check** — four bullets: what you checked, and for anything you are about to
-ask, what you tried before asking. One bullet says what you did **not** check,
-naming the layer beside the one you looked in.
+ask, what you tried before asking. One bullet says what you did **not** check:
+the layer beside the one you looked in whose answer would have changed the
+conclusion, not the first unchecked thing that comes to mind.
 
     checked the base condition has no n50 pool; did NOT look under the other
     conditions, and that is where it was

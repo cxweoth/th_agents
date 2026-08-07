@@ -16,12 +16,15 @@ should.** When questions queue up, that is the signal to write a plan
 Ask only what you cannot settle yourself. A question you could have answered by
 reading the code is unfinished work wearing a question mark.
 
+**Give the options and what differs between them, each on its own line.** A
+question with no options asks the reader to do the design; options run together
+as prose ask them to extract it.
+
 Each decision that survives gets its own block, set apart from the report,
 holding:
 
 - every term defined **inside the block**, including the one you defined three
   messages ago
-- the options, and what differs between them
 - your recommendation and its reason
 - the default: what happens if they do not decide
 - the cost of being wrong, and whether it is reversible — one line
