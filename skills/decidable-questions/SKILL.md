@@ -42,6 +42,22 @@ know which one it was for.
 Ask only what you cannot determine yourself. A question you could have settled by
 reading the code is unfinished work wearing a question mark.
 
+**Ask only at a fork.** A fork is a step whose answer changes what gets done
+after it. Sequencing you can infer, a default the field already has, a choice
+the reader has effectively already made upstream — those are not forks, and
+turning them into options costs a round trip to arrive where you were going
+anyway.
+
+**A reply may end without a decision, and most should.** This skill governs the
+decisions that exist; it does not require one per turn. The failure it is easy
+to fall into is subtle, because each individual question is well formed: work
+that needed one plan and two questions comes out as ten turns of three-way
+choices, the reader supplies the sequencing every time, and planning has quietly
+moved to their side of the table. When several questions queue up, that is the
+signal to write the plan (see `reply-shape`) and ask only where it actually
+branches.
+
 Done when each decision stands in its own marked block, every term in it is
-defined in that block, the options and their difference are stated, and your
-recommendation, the default, and the cost of being wrong are all there.
+defined in that block, the options and their difference are stated, your
+recommendation, the default, and the cost of being wrong are all there, and the
+question is one the reader's answer actually redirects.

@@ -10,14 +10,16 @@ often the only thing. Order every reply accordingly:
     ---
     Conclusion, status at its end
     ---
-    Decision
+    Plan          (only when the work is more than one step)
+    ---
+    Decision      (only at a real fork)
 
-Label each section: the words Check, Conclusion and Decision in bold, each on
-its own line at the top of its block.
+Label each section: the words Check, Conclusion, Plan and Decision in bold, each
+on its own line at the top of its block.
 
 A `---` goes between two sections only when both are there. No check section
-means no `---` above the conclusion; no decision means none below it, and the
-conclusion is the last thing on screen.
+means no `---` above the conclusion; no decision means none below it, and
+whatever is last is the last thing on screen.
 
 ## Check
 
@@ -74,9 +76,40 @@ something and you have other work meanwhile), **done** (the whole task, not this
 step). With several threads open, one line per thread, and mark which are
 blocked.
 
+## Plan
+
+**Present when the work ahead is more than one step, and that is most work.**
+Not a preview of this reply — the path from here to the thing being built.
+
+Render it with `task-list-format`. On top of that format, two things belong
+here and nowhere else:
+
+- **Mark which steps are forks.** A fork is a step whose answer changes what
+  gets done after it. Everything else is yours to do, and saying so is the point
+  of writing the plan: it is how the reader sees that eight steps carry two
+  questions, not eight.
+- **Say what each step is waiting on**, when it is waiting on anything: a run
+  that has to finish, a reply from someone else, a file the reader has to drop
+  somewhere. A step with no blocker named is one you can start now.
+
+This block exists because a plan has nowhere else to live. The conclusion holds
+findings and the decision holds one choice, so multi-step work with neither slot
+gets emitted as a chain of single-step questions instead — the reader supplies
+the sequencing every turn, each reply looks well formed, and nobody notices that
+nothing is holding the shape of the whole job. **A plan not written down is not
+held across turns.**
+
+Keep it to the steps that are real. A plan padded to look thorough is worse than
+none, because the reader then has to work out which entries were load-bearing.
+
 ## Decision
 
 Last, and standing alone. This block is the one place repetition is correct.
+
+**Not every reply has one.** With a plan above it, most steps stop being
+questions: ask at the forks the plan marked, and carry on through the rest.
+Ending every turn on a three-way choice is how planning silently becomes the
+reader's job.
 
 Never point upward, and that starts with the question itself. A demonstrative
 (this, that, the three, the above) has its meaning outside the block, so the
@@ -118,4 +151,5 @@ conversation.
 
 Done when the reply is in that order, every section present is labelled and
 separated by a `---`, the last block stands alone, every claim says how it is
-known, and no fact appears at two levels.
+known, no fact appears at two levels, and multi-step work carries a plan whose
+forks are marked rather than arriving one question at a time.
