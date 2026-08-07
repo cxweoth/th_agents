@@ -1,155 +1,61 @@
 ---
 name: reply-shape
-description: Check, then conclusion, then decision, with every claim labelled by how it is known.
+description: Check, then conclusion, then plan, then decision, with every claim labelled by how it is known.
 ---
 
-The reader reads from the bottom up. The last block is the first thing seen and
-often the only thing. Order every reply accordingly:
+The reader reads from the bottom up. Order every reply:
 
     Check
     ---
     Conclusion, status at its end
     ---
-    Plan          (only when the work is more than one step)
+    Plan          (work of more than one step)
     ---
-    Decision      (only at a real fork)
+    Decision      (a real fork only)
 
-Label each section: the words Check, Conclusion, Plan and Decision in bold, each
-on its own line at the top of its block.
+Bold the section name at the top of its block. A `---` only between two blocks
+that are both present.
 
-A `---` goes between two sections only when both are there. No check section
-means no `---` above the conclusion; no decision means none below it, and
-whatever is last is the last thing on screen.
-
-## Check
-
-What you checked before answering, and for anything you are about to ask, what
-you tried before asking. Four lines in total, as bullets, not prose. If you
-checked nothing there is no check section: say in the conclusion that it is a
-judgement, rather than padding this block with reasoning.
-
-**Say what you did not check.** Whenever you know of a layer next to the one you
-looked in, name it, marked, on one of those lines. Looking in one directory
-leaves the sibling directories; counting in one file leaves the other files; a
-tool that answered leaves the question of what else produces that answer.
+**Check** — four bullets: what you checked, and for anything you are about to
+ask, what you tried before asking. One bullet says what you did **not** check,
+naming the layer beside the one you looked in.
 
     checked the base condition has no n50 pool; did NOT look under the other
     conditions, and that is where it was
 
-Without this the block reports only what was looked at, so four verified lines
-read as "this was verified", and the reader cannot see the dozens of things
-beside them that nobody looked at. That gap is invisible by construction: it is
-the one thing a record of your work will never contain unless you put it there.
+Checked nothing? Then no Check block: say in the conclusion that it is a
+judgement.
 
-## Conclusion
+**Conclusion** — the finding in the first sentence, reasons after it, evidence
+after them. Label every claim **measured** (name the run, grep or test),
+**derived** (say from what) or **guessed** (say so, and do not dress it in a
+number). "Not enough data to see a difference" is not "no difference".
+Disagreement leads with the other position stated accurately.
 
-The finding, stated once, in the first sentence of this block. Reasons follow
-it; evidence follows them.
+End with status lines when a thread changed hands or something finished, not
+otherwise:
 
-Mark how each claim is known. The three are not interchangeable, and stating one
-as another is the failure this exists to prevent:
+    done      what just finished
+    where     where that sits in the whole task
+    next      working | blocked | waiting | done — one line per open thread
 
-- **measured**: a number that came out of a run, a grep, a test. Name where it
-  came from.
-- **derived**: computed from other numbers. Say so, and from what. A derived
-  number worn as a measured one gets acted on with confidence it has not earned.
-- **guessed**: a judgement with nothing behind it. Say so and stop; do not
-  dress it in a number.
+**Plan** — the path from here to the thing being built, in `task-list-format`.
+Mark which steps are forks; say what each step is waiting on. A plan not written
+down is not held across turns.
 
-When the data cannot settle a question, say it cannot, and name what would.
-"No difference" and "not enough data to see a difference" are different claims,
-and only one of them is usually true.
+**Decision** — last, standing alone, governed by `decidable-questions`. Not
+every reply has one. No demonstrative pointing outside the block: read it with
+everything else covered, and any noun that needs the rest of the reply is a
+pointer.
 
-Disagreement leads with the other position stated accurately, then the specific
-point of departure. Restating it wrong first makes the rest unreadable.
+**Length** — say each thing once. No `##` headings. When it runs long, cut
+restatement, then qualifications that change nothing the reader does, then
+alternatives you are not recommending. Never cut a number, a path, a
+counter-example, or an assumption you are relying on.
 
-Status lines end this block, and only when the reader asks, or when a thread
-changed hands, or when something finished. Not every reply. Three lines:
+Scope: conversation only. Letters to other agents, files under `shared/` and
+reading reports keep their own formats.
 
-    done      what just finished, one line
-    where     where that sits in the whole task, e.g. 3 of 12, batch 1 of 2
-    next      whose move it is, and whether the reader is blocked
-
-`next` names a state, not a routing: **working** (carrying on without input),
-**blocked** (nothing moves until they answer), **waiting** (someone else owes
-something and you have other work meanwhile), **done** (the whole task, not this
-step). With several threads open, one line per thread, and mark which are
-blocked.
-
-## Plan
-
-**Present when the work ahead is more than one step, and that is most work.**
-Not a preview of this reply — the path from here to the thing being built.
-
-Render it with `task-list-format`. On top of that format, two things belong
-here and nowhere else:
-
-- **Mark which steps are forks.** A fork is a step whose answer changes what
-  gets done after it. Everything else is yours to do, and saying so is the point
-  of writing the plan: it is how the reader sees that eight steps carry two
-  questions, not eight.
-- **Say what each step is waiting on**, when it is waiting on anything: a run
-  that has to finish, a reply from someone else, a file the reader has to drop
-  somewhere. A step with no blocker named is one you can start now.
-
-This block exists because a plan has nowhere else to live. The conclusion holds
-findings and the decision holds one choice, so multi-step work with neither slot
-gets emitted as a chain of single-step questions instead — the reader supplies
-the sequencing every turn, each reply looks well formed, and nobody notices that
-nothing is holding the shape of the whole job. **A plan not written down is not
-held across turns.**
-
-Keep it to the steps that are real. A plan padded to look thorough is worse than
-none, because the reader then has to work out which entries were load-bearing.
-
-## Decision
-
-Last, and standing alone. This block is the one place repetition is correct.
-
-**Not every reply has one.** With a plan above it, most steps stop being
-questions: ask at the forks the plan marked, and carry on through the rest.
-Ending every turn on a three-way choice is how planning silently becomes the
-reader's job.
-
-Never point upward, and that starts with the question itself. A demonstrative
-(this, that, the three, the above) has its meaning outside the block, so the
-reader is sent scrolling before reaching the options. Name the subject in the
-question, and write each option out in full.
-
-The test: read the block with everything else covered. Any noun that needs the
-rest of the reply is a pointer, whether or not you wrote the word "above".
-
-When you are unsure what the reader meant and a lot of work rides on it, that
-reading *is* the decision block: state how you understood them and ask before
-starting. It does not go at the top, because a misunderstanding declared where
-nobody looks is not a checkpoint.
-
-`decidable-questions` governs what goes in this block. This skill only fixes
-where it goes.
-
-## Length
-
-Say each thing once, in one place. Keep the stronger of a bold lead and the body
-that repeats it. **No `##` headings in a reply**: a bold-led paragraph is the
-largest unit, which caps duplication at two levels instead of three.
-
-When it runs long, cut in this order:
-
-1. restatement
-2. qualifications that do not change what the reader does
-3. alternatives you are not recommending; the options inside a decision block
-   are required and are not alternatives in this sense
-
-Never cut a number, a file path, a counter-example, or an assumption you are
-relying on. Those carry the most and cost the least, and cutting them is how
-brevity turns into vagueness.
-
-Scope: conversation only. Letters to other agents, files under `shared/`,
-reading reports and bridge reports keep their own formats. Where a project
-mandates PREP for written reports, PREP keeps those and this keeps the
-conversation.
-
-Done when the reply is in that order, every section present is labelled and
-separated by a `---`, the last block stands alone, every claim says how it is
-known, no fact appears at two levels, and multi-step work carries a plan whose
-forks are marked rather than arriving one question at a time.
+Done when the reply is in that order, each block present is labelled, every
+claim says how it is known, and multi-step work carries a plan with its forks
+marked.
