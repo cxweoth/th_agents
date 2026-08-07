@@ -36,16 +36,8 @@ conversation can act on it. Define every project-specific term, file, function,
 or abbreviation where it first appears, as item 1 above defines what `events.py`
 holds.
 
-Applies to any set of parallel items: a plan, a proposal, remaining work, an
-inventory of what is still open, steps in a letter to another agent.
-
-**Parallel means the items can be swapped without changing the meaning.** That
-is the test, and it cuts both ways. Five open backlog entries are parallel and
-belong in a numbered list even when the surrounding text is a status report; a
-four-step derivation is not parallel, and numbering it makes four sequential
-claims look like four peer items, flattening whichever one carried the finding.
-Prose for an argument, a numbered list for a list. When one reply holds both,
-they are two blocks rather than one list numbered straight through.
+Applies to any list of things to be done: a plan, a proposal, remaining work,
+steps in a letter to another agent.
 
 Done when every item is one numbered list entry holding a bold handle and a
 single paragraph, mechanical names are in inline code, and every term in the
