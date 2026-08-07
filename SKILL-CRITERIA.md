@@ -21,9 +21,9 @@ The bar is below.
 
 ---
 
-## The five criteria
+## The six criteria
 
-A proposal must clear all five. Failing one is a reason to not add it, not a reason
+A proposal must clear all six. Failing one is a reason to not add it, not a reason
 to argue harder.
 
 ### 1. It fires on a real, recurring friction
@@ -69,6 +69,29 @@ surfaces months later as "the agent ignores this rule sometimes."
 
 If it overlaps, the right move is often to edit the existing skill rather than
 add a second one.
+
+### 6. It changes one thing
+
+One proposal, one change. To change three things, write three proposals and ship
+them separately.
+
+Bundling costs you attribution. When a bundled change makes the output worse, you
+cannot tell which part did it, so the only move left is to revert the whole thing,
+which throws away whichever part was working.
+
+This criterion was added on 2026-08-07 after paying for it. Three edits to
+`reply-shape` and `decidable-questions` shipped together from another machine: a
+Plan block was added, the Decision block was restricted to real forks, and both
+files were heavily compressed. The result read worse and was reverted in full.
+The Decision restriction was almost certainly the right change, and it went back
+in the bin with the rest, because nobody could separate it from the compression.
+
+The same lesson in this system's other half: the three training-loop bugs found on
+2026-07-30 were confirmed fixed only because a determinism A/B gave a
+bit-identical before-and-after. Attribution needs one variable to move at a time.
+
+Cost of this criterion: it is slower. What it buys: when something gets worse, you
+know what to undo.
 
 ---
 
@@ -118,14 +141,15 @@ maintenance, not as admitting a mistake.
 
 1. **Real friction**: TH reads the last block first, and decisions were being
    buried mid-reply.
-2. **Falsifiable**: either the reply is ordered Check / Conclusion / Plan / Decision
-   with `---` separators, or it is not.
+2. **Falsifiable**: either the reply is ordered Check / Conclusion / Decision with
+   `---` separators, or it is not.
 3. **Changes behaviour**: it is a physical rearrangement, not an exhortation. An
    agent trying its best still gets the order wrong without the rule.
 4. **Cost**: name-only. The body loads when invoked.
 5. **No conflict**: `decidable-questions` governs what goes in the decision block;
    `reply-shape` only governs where that block sits. The two are explicitly
    scoped against each other inside the skill itself.
+6. **One change**: it was one addition, shipped alone.
 
 **Observed effect (TH, 2026-08-07)**: 「我做決定還有清楚度有上升」. Note that this is
 one user's impression after one day, which is exactly the kind of evidence the
@@ -155,8 +179,9 @@ Violation looks like:  how you would know it was ignored
 Behavioural?     what an agent doing its best would still get wrong
 Cost:            resident or name-only, and why
 Conflicts:       which existing skills it touches
+Change scope:    how many things this proposal changes. If more than one, split it.
 Pre-registration: what should visibly change, and by when it will be reviewed
 ```
 
-Six lines. If the six lines are hard to write, the skill is not ready, and that is
-the point of the form.
+Seven lines. If they are hard to write, the skill is not ready, and that is the
+point of the form.
