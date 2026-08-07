@@ -52,3 +52,53 @@
 
 **還缺什麼**：一個跟 dozo_src 無關的實例；以及把刪除測試拿去打更多案例，確認它不會
 像互換測試一樣當場垮掉。
+
+---
+
+## 決定區塊指向沒有被命名的東西
+
+**實例一（2026-08-08，dozo_src）**：一則回覆用「①②」指涉兩個工作項，四次出現
+（結論第 1 點、status 的 where 行、開工前那句、以及要求決定的那句），**一次都沒有
+說出它們是什麼**。最後要讀的人在「先做 ② 再做 ①」與「照 RA 的 ①→②」之間選一個。
+
+**為什麼上下文救不了**：①② 的來源是一個叫 `20260808-0154` 的 thread。Planner 查過
+`northstar-bridge` 的 `directives/` 與 `reports/`，那個檔不在 bridge 裡，所以連能讀
+bridge 的人都無從查起。
+
+**違反的是已經寫下來的規則**：`reply-shape` 的 Decision 段寫著 "Never point upward,
+and that starts with the question itself... The test: read the block with everything
+else covered."，`task-list-format` 寫著清單要 self-contained。這不是規則沒寫。
+
+**還缺什麼**：先分清楚是「缺規則」還是「規則沒被讀到」。若是後者（見下一則），
+這條就不該變成新規則。
+
+---
+
+## ★ 橫跨的觀察：失誤多半是沒遵守既有規則，不是規則沒寫
+
+2026-08-08 一個晚上，dozo_src 四次失誤：
+
+1. 回覆的 status 寫著 `next blocked`，但整則沒有 Decision 區塊。`reply-shape`
+   要求 Decision 獨立放在最後。
+2. 五項還開著的 backlog（remaining work）寫成散文。`task-list-format` 的適用範圍
+   那句明文包含 remaining work。
+3. 被指正後把一條論證編成六點。這一條不是違反，是**照著它自己重建出來的假規則
+   做**：它說規則寫著「適用於任何在列東西的清單」，那句話不在檔案裡。
+4. 「①②」四次未命名（見上一則）。`reply-shape` 明文禁止。
+
+**三件是沒遵守寫下來的規則，一件是照幻想的規則做。沒有一件是規則沒寫。**
+
+**機制假設（未驗證）**：`reply-shape`、`task-list-format`、`decidable-questions` 在
+`settings.json` 裡都是 `name-only`，內文只有被 invoke 時才載入。第 3 點那句不存在的
+規則，正是「沒讀內文、只憑 `CLAUDE.md` 的觸發語重建」的直接證據。
+
+**這是假設不是量測**：查不到 dozo_src 那台的 `settings.json` 與專案層 `CLAUDE.md`，
+那要開專案那一側。而且同一份設定在 Planner 這台上 `reply-shape` 確實會被 invoke
+（2026-08-08 這個 session 就有），所以差別不在設定檔本身。
+
+**可以量的東西**：在那台機器上數該 session 的 `.jsonl` 裡 `"skill":"reply-shape"`
+與 `"skill":"task-list-format"` 各出現幾次。0 就證實了假設。
+
+**若證實，該改的不是 skill 內文**，而是二選一：把 `reply-shape` 從 `name-only` 拿掉
+讓它常駐（成本高，違反判準四），或改 `CLAUDE.md` 的觸發語讓它更難不觸發（成本低，
+先試這個）。
