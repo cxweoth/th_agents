@@ -1,3 +1,9 @@
+# Approval
+
+Invoke `approval` and follow it before anything becomes permanent: a file write,
+a commit, a push, a calendar change, or a letter to another agent. Not conditional
+on the kind of work.
+
 # Replies
 
 Invoke `reply-shape` and follow it for every reply: check, then conclusion, then
