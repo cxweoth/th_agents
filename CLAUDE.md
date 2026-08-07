@@ -29,6 +29,9 @@ on its own trigger, so only the relevant one is loaded:
   project's architecture from memory, you are not in the writing phase. Read
   `CODE_ARCH.md` before every plan, including small ones, and update it in the
   same commit as the change.
+- `references-before-moving` — before a file or symbol moves, is renamed, or is
+  deleted. Find what points at it first, including the references that are not
+  code: path strings, templates, notebooks, fixtures.
 - `reuse-before-writing` — before adding any new module, script, class, or
   non-trivial function.
 - `comment-brevity` — when writing or reviewing a comment or docstring.
